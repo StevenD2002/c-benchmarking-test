@@ -12,6 +12,7 @@ typedef struct{
 } MultiLevelArray;
 
 MultiLevelArray* createMultiLevelArray(int num_rows, int num_cols);
+MultiLevelArray* addTwoMultiLevelArrays(MultiLevelArray* array1, MultiLevelArray* array2);
 int getFromMultiLevelArray(MultiLevelArray *array, int row, int col);
 void setMultiLevelArray(MultiLevelArray *array, int row, int col, int value);
 void freeMultiLevelArray(MultiLevelArray *array);

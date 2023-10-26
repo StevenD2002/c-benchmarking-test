@@ -29,29 +29,12 @@ int main() {
   // for the multi dimensional array
 
   MultiDimensionalArray *MDArrayResult =
-      createMultiDimensionalArray(1000, 1000);
-  for (int i = 0; i < 1000; i++) {
-    for (int j = 0; j < 1000; j++) {
-      int sum = 0;
-        sum += getFromMultiDimensionalArray(MDArray1, i, j) +
-               getFromMultiDimensionalArray(MDArray2, i, j);
-      setMultiDimensionalArray(MDArrayResult, i, j, sum);
-    }
-  }
+      addTwoMultiDimensionalArrays(MDArray1, MDArray2);
 
   // now lets perform the multiplication
   // for the multi level array
 
-  MultiLevelArray*MLArrayResult = createMultiLevelArray(1000, 1000);
-
-  for (int i = 0; i < 1000; i++) {
-    for (int j = 0; j < 1000; j++) {
-      int sum = 0;
-        sum += getFromMultiLevelArray(MLArray1, i, j) +
-               getFromMultiLevelArray(MLArray2, i, j);
-      setMultiLevelArray(MLArrayResult, i, j, sum);
-    }
-  }
+  MultiLevelArray *MLArrayResult = addTwoMultiLevelArrays(MLArray1, MLArray2);
 
   // lets print out the very last element of the arrays to make sure they are
   //  the same

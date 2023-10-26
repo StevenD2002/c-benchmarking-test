@@ -68,6 +68,40 @@ void setMultiLevelArray(MultiLevelArray *array, int row, int col, int value) {
     // Set the value at the specified row and column
     array->rows[row][col] = value;
   }
+};
+
+MultiLevelArray *addTwoMultiLevelArrays(MultiLevelArray *array1,
+                                        MultiLevelArray *array2) {
+  // Check if either array is NULL
+  if (array1 == NULL || array2 == NULL) {
+    return NULL;
+  }
+  // Check if the arrays have the same number of rows
+  if (array1->num_rows != array2->num_rows) {
+    return NULL;
+  }
+  // Check if the arrays have the same number of columns in each row
+  for (int i = 0; i < array1->num_rows; i++) {
+    if (array1->num_cols[i] != array2->num_cols[i]) {
+      return NULL;
+    }
+  }
+  // Create a new array with the same dimensions as the input arrays
+  MultiLevelArray *sum =
+      createMultiLevelArray(array1->num_rows, array1->num_cols[0]);
+  // Check if the array creation failed
+  if (sum == NULL) {
+    return NULL;
+  }
+  // Add the elements in the input arrays and store the result in the new array
+  for (int i = 0; i < array1->num_rows; i++) {
+    for (int j = 0; j < array1->num_cols[i]; j++) {
+      setMultiLevelArray(sum, i, j,
+                         getFromMultiLevelArray(array1, i, j) +
+                             getFromMultiLevelArray(array2, i, j));
+    }
+  }
+  return sum;
 }
 
 void freeMultiLevelArray(MultiLevelArray *array) {

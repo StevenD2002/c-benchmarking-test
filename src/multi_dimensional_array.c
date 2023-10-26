@@ -63,7 +63,7 @@ void setMultiDimensionalArray(MultiDimensionalArray *array, int row, int col,
 }
 
 MultiDimensionalArray *
-addMultiDimensionalArrays(MultiDimensionalArray *array1,
+addTwoMultiDimensionalArrays(MultiDimensionalArray *array1,
                           MultiDimensionalArray *array2) {
   if (array1 == NULL || array2 == NULL || array1->rows != array2->rows ||
       array1->cols != array2->cols) {
