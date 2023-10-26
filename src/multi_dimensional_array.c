@@ -62,6 +62,26 @@ void setMultiDimensionalArray(MultiDimensionalArray *array, int row, int col,
   }
 }
 
+MultiDimensionalArray *
+addMultiDimensionalArrays(MultiDimensionalArray *array1,
+                          MultiDimensionalArray *array2) {
+  if (array1 == NULL || array2 == NULL || array1->rows != array2->rows ||
+      array1->cols != array2->cols) {
+    return NULL;
+  }
+  MultiDimensionalArray *result =
+      createMultiDimensionalArray(array1->rows, array1->cols);
+  if (result == NULL) {
+    return NULL;
+  }
+  for (int i = 0; i < array1->rows; i++) {
+    for (int j = 0; j < array1->cols; j++) {
+      result->data[i][j] = array1->data[i][j] + array2->data[i][j];
+    }
+  }
+  return result;
+}
+
 void freeMultiDimensionalArray(MultiDimensionalArray *array) {
   if (array != NULL) {
     for (int i = 0; i < array->rows; i++) {
